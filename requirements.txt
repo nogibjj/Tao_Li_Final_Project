@@ -3,3 +3,16 @@ pytest
 click
 black
 pytest-cov
+nbval
+
+requests
+python-dotenv
+
+pandas
+matplotlib
+
+fastapi
+uvicorn[standard]
+httpx
+
+mysql-connector-python
