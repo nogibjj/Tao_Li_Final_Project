@@ -1,4 +1,7 @@
-[![Python template with Github Actions](https://github.com/drktao/python-template/actions/workflows/main.yml/badge.svg)](https://github.com/drktao/python-template/actions/workflows/main.yml)
+[![format](https://github.com/nogibjj/Tao_Li_Final_Project/actions/workflows/format.yml/badge.svg)](https://github.com/nogibjj/Tao_Li_Final_Project/actions/workflows/format.yml)
+[![install](https://github.com/nogibjj/Tao_Li_Final_Project/actions/workflows/install.yml/badge.svg)](https://github.com/nogibjj/Tao_Li_Final_Project/actions/workflows/install.yml)
+[![lint](https://github.com/nogibjj/Tao_Li_Final_Project/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/Tao_Li_Final_Project/actions/workflows/lint.yml)
+[![test](https://github.com/nogibjj/Tao_Li_Final_Project/actions/workflows/test.yml/badge.svg)](https://github.com/nogibjj/Tao_Li_Final_Project/actions/workflows/test.yml)
 
 # python-template
 The purpose of this project is to make a python template for use in IDS 706 for all subsequent python-based projects. The following are the important files contained in this repo:
