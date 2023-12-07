@@ -12,7 +12,9 @@ pandas
 matplotlib
 
 fastapi
-uvicorn[standard]
+uvicorn
 httpx
 
-mysql-connector-python
+mysql-connector-python 
+
+prettytable
