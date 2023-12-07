@@ -9,8 +9,8 @@ def load(dataset="movie.csv"):
     conn = sqlite3.connect("MovieDB.db")
     cursor = conn.cursor()
     cursor.execute("DROP TABLE IF EXISTS MovieDB")
-    cursor.execute("CREATE TABLE GroceryDB (Movie_Title, Year, Director, Actors, Rating, Runtime(Mins), Censor, Total_Gross, main_genre, side_genre)")
-    cursor.executemany("INSERT INTO GroceryDB VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?)", payload)
+    cursor.execute("CREATE TABLE MovieDB (Movie_Title, Year, Director, Actors, Rating, Runtime, Censor, Total_Gross, main_genre, side_genre)")
+    cursor.executemany("INSERT INTO MovieDB VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?)", payload)
 
     conn.commit()
     conn.close()
