@@ -1,5 +1,5 @@
 import sqlite3
-from prettytable import PrettyTable
+import json
 
 def create_db():
     conn = sqlite3.connect("GroceryDB.db")
@@ -18,58 +18,62 @@ def create_db():
     conn.commit()
     return "Successfully created table!"
 
-def read_db():
-    '''Query the top 5 rows of the GroceryDB table'''
-    conn = sqlite3.connect("GroceryDB.db")
+def read_db(conn):
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM GroceryDB")
+    cursor.execute("SELECT * FROM GroceryDB LIMIT 5")
+    rows = cursor.fetchall()
 
-    column_names = [description[0] for description in cursor.description]
-
-    table = PrettyTable(column_names) # initialize table with column names
-
-    for row in cursor.fetchall():
-        table.add_row(row) # fetch rows and add them to the table
-
-    print(table)
-
-    conn.close()
-
+    for row in rows:
+        print(row)
+    print("Table read")
     return "Success"
 
-def Query1():
+def Query1(json_str=True):
     conn = sqlite3.connect("GroceryDB.db")
+    conn.row_factory = sqlite3.Row # This enables column access by name: row['column_name']
     cursor = conn.cursor()
-    cursor.execute(f"SELECT * FROM GroceryDB WHERE general_name LIKE '%coffee%'")
+    rows = cursor.execute(f"SELECT * FROM GroceryDB WHERE general_name LIKE '%coffee%'").fetchall()
 
-    column_names = [description[0] for description in cursor.description]
+    # column_names = [description[0] for description in cursor.description]
 
-    table = PrettyTable(column_names) # initialize table with column names
+    # table = PrettyTable(column_names) # initialize table with column names
 
-    for row in cursor.fetchall():
-        table.add_row(row) # fetch rows and add them to the table
+    # for row in cursor.fetchall():
+    #     table.add_row(row) # fetch rows and add them to the table
 
-    print(table)
+    # print(table)
 
+    for row in rows:
+        print(row)
+    print("rows retrieved, success!")
+
+    conn.commit()
     conn.close()
 
-    return "Success"
+    if json_str:
+        return json.dumps([dict(ix) for ix in rows]) # create JSON
 
-
-def Query2(thresh):
+def Query2(json_str=True):
     conn = sqlite3.connect("GroceryDB.db")
+    conn.row_factory = sqlite3.Row # This enables column access by name: row['column_name']
     cursor = conn.cursor()
-    cursor.execute(f"SELECT general_name FROM GroceryDB WHERE count_products>{thresh}")
+    rows = cursor.execute(f"SELECT general_name FROM GroceryDB WHERE count_products>20").fetchall()
 
-    column_names = [description[0] for description in cursor.description]
+    # column_names = [description[0] for description in cursor.description]
 
-    table = PrettyTable(column_names) # initialize table with column names
+    # table = PrettyTable(column_names) # initialize table with column names
 
-    for row in cursor.fetchall():
-        table.add_row(row) # fetch rows and add them to the table
+    # for row in cursor.fetchall():
+    #     table.add_row(row) # fetch rows and add them to the table
 
-    print(table)
+    # print(table)
 
+    for row in rows:
+        print(row)
+    print("rows retrieved, success!")
+
+    conn.commit()
     conn.close()
 
-    return "Success"
+    if json_str:
+        return json.dumps([dict(ix) for ix in rows]) # create JSON
