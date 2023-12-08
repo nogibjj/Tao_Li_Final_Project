@@ -4,6 +4,7 @@ click
 black
 pytest-cov
 nbval
+ruff
 
 requests
 python-dotenv

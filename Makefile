@@ -6,7 +6,7 @@ format:
 	black *.py
 
 lint:
-	pylint --disable=R,C *.py
+	ruff check.*py
 
 test:
-	python -m pytest -vv test_*.py
+	python -m pytest -vv --cov=app test_*.py
