@@ -9,13 +9,14 @@ ruff
 requests
 python-dotenv
 
+# data science
 pandas
 matplotlib
 
+# FastAPI 
 fastapi
 uvicorn
 httpx
 
-mysql-connector-python 
-
-prettytable
+# load test
+locust
