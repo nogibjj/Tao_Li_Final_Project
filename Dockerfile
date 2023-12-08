@@ -1,13 +1,15 @@
 FROM python:3.8
 
-WORKDIR /app
+RUN mkdir -p /app
 
-COPY . /app
+COPY . app.py requirements.txt /app/
+
+WORKDIR /app
 
 RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
-ENV NAME World
+CMD [ "app.py" ]
 
-CMD ["python", "app.py", "--host=0.0.0.0", "--port=5000"]
+ENTRYPOINT [ "python" ]
