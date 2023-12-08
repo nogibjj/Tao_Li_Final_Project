@@ -6,7 +6,7 @@ format:
 	black *.py
 
 lint:
-	ruff check.*py
+	ruff check *.py
 
 test:
 	python -m pytest -vv --cov=app test_*.py
