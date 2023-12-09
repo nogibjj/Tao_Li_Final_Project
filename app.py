@@ -1,21 +1,26 @@
 from fastapi import FastAPI
 import uvicorn
 from mylib.query import Query1, Query2
+from urllib.parse import unquote
+from fastapi.responses import HTMLResponse
 
 app = FastAPI()
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 async def root():
+    with open("templates/index.html", "r", encoding="utf-8") as f:
+        html = f.read()
+    return HTMLResponse(content=html, status_code=200)
 
-    return "Welcome to the grocery database service!"
+@app.get("/grocery_info/{grocery_name}")
+async def get_grocery_info(grocery_name: str):
+    decoded_grocery_name = unquote(grocery_name)
+    return Query1(decoded_grocery_name)
 
-@app.get("/coffee")
-async def get_coffee_info():
-    return Query1()
-
-@app.get("/product_count")
-async def get_count():
-    return Query2
+@app.get("/product_count/{count}")
+async def get_count(count: int):
+    decoded_count = unquote(count)
+    return Query2(decoded_count)
 
 if __name__ == "__main__":
     uvicorn.run(app, port=5000, host="0.0.0.0")

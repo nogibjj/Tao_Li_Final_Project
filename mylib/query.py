@@ -28,11 +28,11 @@ def read_db(conn):
     print("Table read")
     return "Success"
 
-def Query1(json_str=True):
+def Query1(grocery, json_str=True):
     conn = sqlite3.connect("GroceryDB.db")
     conn.row_factory = sqlite3.Row # This enables column access by name: row['column_name']
     cursor = conn.cursor()
-    rows = cursor.execute(f"SELECT * FROM GroceryDB WHERE general_name LIKE '%coffee%'").fetchall()
+    rows = cursor.execute(f"SELECT * FROM GroceryDB WHERE general_name LIKE '%{grocery}%'").fetchall()
 
     # column_names = [description[0] for description in cursor.description]
 
@@ -53,11 +53,11 @@ def Query1(json_str=True):
     if json_str:
         return json.dumps([dict(ix) for ix in rows]) # create JSON
 
-def Query2(json_str=True):
+def Query2(count, son_str=True):
     conn = sqlite3.connect("GroceryDB.db")
     conn.row_factory = sqlite3.Row # This enables column access by name: row['column_name']
     cursor = conn.cursor()
-    rows = cursor.execute(f"SELECT general_name FROM GroceryDB WHERE count_products>20").fetchall()
+    rows = cursor.execute(f"SELECT general_name FROM GroceryDB WHERE count_products>{count}").fetchall()
 
     # column_names = [description[0] for description in cursor.description]
 
