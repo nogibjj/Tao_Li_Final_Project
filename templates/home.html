@@ -47,7 +47,7 @@
 
         async function getCountsInfo() {
             const countsQuery = document.getElementById('countsQuery').value;
-            const response = await fetch('/counts_info/' + encodeURIComponent(countsQuery));
+            const response = await fetch('/counts_info/'+countsQuery);
             const data = await response.text();
             document.getElementById('countsResponse').textContent = data;
         }
