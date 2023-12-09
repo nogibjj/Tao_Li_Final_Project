@@ -53,7 +53,7 @@ def Query1(grocery, json_str=True):
     if json_str:
         return json.dumps([dict(ix) for ix in rows]) # create JSON
 
-def Query2(count, son_str=True):
+def Query2(count, json_str=True):
     conn = sqlite3.connect("GroceryDB.db")
     conn.row_factory = sqlite3.Row # This enables column access by name: row['column_name']
     cursor = conn.cursor()
