@@ -12,9 +12,6 @@ The purpose of this project is to make a python template for use in IDS 706 for 
 4. `test_first.py` - python script containing tests for `first.py`
 5. `requirements.txt` - contains names of required packages for installation.
 
-## Instructions
-Use Github codespaces, which will allow for a container to be built with the required packages, as detailed in requirements.txt. In the terminal, use `make install` to install the necessary packages from `requirements.txt`. Use `make format` to format the code using python black and `make lint` to lint the code. Finally, use `make test` to run the test cases from `test_first.py`. One can also directly run the two python scripts in this repo using `python first.py` and `python test_first.py`. 
-
 ## Project Requirements
 
 - Microservice
@@ -37,3 +34,20 @@ Use Github codespaces, which will allow for a container to be built with the req
     - Each team member should submit a separate 1-2 page management report reflecting on the team's functioning according to the principles discussed in your teamwork book. This report should not be part of the GitHub README but rather a separate document. It should include a peer evaluation in which each team member is graded on their performance, stating three positive attributes and three areas for improvement as the basis for the grade. Note that each student will share the teamwork reflection with their team and discuss it in a session before turning in the report. The outcome of this feedback session must be included in the report for full credit.
 - Quantitative Assessment
     - The project must include a quantitative assessment of its reliability and stability. You must use data science fundamentals to describe system performance, e.g., average latency per request at different levels of requests per second (100, 1000, etc.). Think of the software system as a data science problem that needs to be described using data science principles.
+
+## Architecture
+
+* Microservice: The microservice is developed using FastAPI.
+* Containerization with Distroless: By using distroless containers, the FastAPI application is not only efficiently packed with its required environments but also gains an enhanced level of security.
+* Cloud infrastructure with IaC: Azure Functions enable the application to scale dynamically based on demand, ensuring cost-effective resource utilization. The integration of IaC with Azure Functions enhances service reliability and performance, allowing for seamless scaling and management of resources in response to varying loads.
+
+## Project structure
+
+* CI/CD: leveraging GitHub Actions for continuous integration and delivery, ensuring code quality and seamless deployment.
+* Data interaction: we follow the ETL process in `mylib`: extract from an online database, transform&load into a sqlite3 database `GroceryDB.db`. Then we query data from the `GroceryDB` database using `query.py`, and transform the query results to `.json` format for front-end deployment.
+* Front-end: `template/home.html` offers a clean interface to interact with the service, using Bootstrap as a responsice design.
+
+## Workflow
+
+* Users interact with the `index.html` page, which is served by the FastAPI application. Domain: grocery-online.azurewebsites.net
+* 
