@@ -67,9 +67,9 @@ https://grocery-online.azurewebsites.net/
 
 * Optimized for high traffic: the service can support up to 10,000 requests per second, providing uninterrupted access to grocery information.
 
-* Comprehensive load testing: use `locust` module in Python to perform load test. Run `locust -f locustfile.py` in the terminal gives the below quantitative results. We set it to test 10,000 requests per second. The result of the load test is restricted by performance of Azure VM (4 cPUs and 16GB RAMs), but the peak request per second is around . This is evident by the low CPU percentage and memory percentage. 
+* Comprehensive load testing: use `locust` module in Python to perform load test. Run `locust -f locustfile.py` in the terminal gives the below quantitative results. We set it to test 10,000 requests per second. The result of the load test is restricted by performance of Azure VM (4 cPUs and 16GB RAMs), but the peak request per second is around 900. This is evident by the low CPU percentage and memory percentage. 
 
-
+![Alt text](figures/quantitative.png)
 
 ** CPU usage & Memory percentage:
 
