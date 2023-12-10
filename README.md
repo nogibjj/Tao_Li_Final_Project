@@ -59,9 +59,14 @@ https://grocery-online.azurewebsites.net/
 
 * Comprehensive load testing: use `locust` module in Python to perform load test. Run `locust -f locustfile.py` in the terminal gives the below quantitative results:
 
+
+
+** CPU usage & Memory percentage:
+
 ![Alt text](figures/quantitative.png)
 
-* Data-driven performance metrics:
+
+* Data-driven performance metrics: see above.
 
 * IaC: We can use Azure Resource Manager templates to deploy the Azure App, with the customized templated to Azure Portal:
 ```json
