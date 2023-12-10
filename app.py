@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.get("/", response_class=HTMLResponse)
 async def root():
-    with open("templates/index.html", "r", encoding="utf-8") as f:
+    with open("templates/home.html", "r", encoding="utf-8") as f:
         html = f.read()
     return HTMLResponse(content=html, status_code=200)
 
