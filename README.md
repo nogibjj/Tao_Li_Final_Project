@@ -41,6 +41,8 @@ This repository includes the main tasks for our final project:
 
 ## Architecture
 
+***Add diagram here***
+
 * Microservice: The microservice is developed using FastAPI.
 * Containerization with Distroless: By using distroless containers, the FastAPI application is not only efficiently packed with its required environments but also gains an enhanced level of security.
 * Cloud infrastructure with IaC: Azure Functions enable the application to scale dynamically based on demand, ensuring cost-effective resource utilization. The integration of IaC with Azure Functions enhances service reliability and performance, allowing for seamless scaling and management of resources in response to varying loads.
@@ -115,6 +117,8 @@ https://grocery-online.azurewebsites.net/
     ]
 }
 ```
+## Video link
+***add video link here***
 
 ## References
 
