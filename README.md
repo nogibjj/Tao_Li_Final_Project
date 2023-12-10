@@ -117,6 +117,10 @@ https://grocery-online.azurewebsites.net/
     ]
 }
 ```
+
+## Team reflection
+See `team reflection` file.
+
 ## Video link
 ***add video link here***
 
