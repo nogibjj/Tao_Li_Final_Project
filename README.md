@@ -49,5 +49,19 @@ The purpose of this project is to make a python template for use in IDS 706 for 
 
 ## Workflow
 
-* Users interact with the `index.html` page, which is served by the FastAPI application. Domain: grocery-online.azurewebsites.net
-* 
+* Users interact with the `index.html` page, which is served by the FastAPI application. 
+
+https://grocery-online.azurewebsites.net/
+![Alt text](figures/frontpage.png)
+
+* Data queries are processed by FastAPI, communicating with `GroceryDB` database to fetch and update data.
+
+* Build and push the Docker image through Docker Desktop and DockerHub, and deploy to Azure web services.
+
+## Features
+
+* Optimized for high traffic: the service can support up to 10,000 requests per second, providing uninterrupted access to grocery information.
+
+* Comprehensive load testing:
+
+* Data-driven performance metrics:
