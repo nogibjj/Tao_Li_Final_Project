@@ -10,4 +10,4 @@ EXPOSE 5000
 
 ENV NAME World
 
-CMD ["unicorn", "app.py", "--host=0.0.0.0", "--port=5000"]
+ENTRYPOINT ["gunicorn", "main:app"]
