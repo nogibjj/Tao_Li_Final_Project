@@ -3,14 +3,8 @@
 [![lint](https://github.com/nogibjj/Tao_Li_Final_Project/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/Tao_Li_Final_Project/actions/workflows/lint.yml)
 [![test](https://github.com/nogibjj/Tao_Li_Final_Project/actions/workflows/test.yml/badge.svg)](https://github.com/nogibjj/Tao_Li_Final_Project/actions/workflows/test.yml)
 
-# python-template
-The purpose of this project is to make a python template for use in IDS 706 for all subsequent python-based projects. The following are the important files contained in this repo:
+# IDS 706 Final Project (Yue Li, Derek Tao)
 
-1. `main.yml` - Github Actions for install, test, format, and lint.
-2. `Makefile` - `make` commands for install, test, format, and lint
-3. `first.py` - python script containing a function definition
-4. `test_first.py` - python script containing tests for `first.py`
-5. `requirements.txt` - contains names of required packages for installation.
 
 ## Project Requirements
 
@@ -52,6 +46,7 @@ The purpose of this project is to make a python template for use in IDS 706 for 
 * Users interact with the `index.html` page, which is served by the FastAPI application. 
 
 https://grocery-online.azurewebsites.net/
+
 ![Alt text](figures/frontpage.png)
 
 * Data queries are processed by FastAPI, communicating with `GroceryDB` database to fetch and update data.
@@ -62,6 +57,46 @@ https://grocery-online.azurewebsites.net/
 
 * Optimized for high traffic: the service can support up to 10,000 requests per second, providing uninterrupted access to grocery information.
 
-* Comprehensive load testing:
+* Comprehensive load testing: use `locust` module in Python to perform load test. Run `locust -f locustfile.py` in the terminal gives the below quantitative results:
+
+![Alt text](figures/quantitative.png)
 
 * Data-driven performance metrics:
+
+* IaC: We can use Azure Resource Manager templates to deploy the Azure App, with the customized templated to Azure Portal:
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-11-01",
+            "name": "[parameters('name')]",
+            "location": "[parameters('location')]",
+            "kind": "app",
+            "properties": {
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('name'))]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('name')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "F1",
+                "capacity": 1
+            }
+        }
+    ]
+}
+```
