@@ -5,6 +5,16 @@
 
 # IDS 706 Final Project (Yue Li, Derek Tao)
 
+This repository includes the main tasks for our final project:
+* `Makefile` is a configuration file used in Unix-based systems for automating tasks and building software. It contains instructions and dependencies for compiling code, running tests, and other development tasks.
+* `.devcontainer` includes a Dockerfile and `devcontainer.json`. The `Dockerfile` within this folder specifies how the container should be built, and other settings in this directory may control development environment configurations.
+* `Workflows` includes GitHub Actions, which contain configuration files for setting up automated build, test, and deployment pipelines for your project.
+* `.gitignore` is used to specify which files or directories should be excluded from version control when using Git.
+* `README.md` is the instruction file for the readers.
+* `app.py` is a Flask app that can be deployed on Azure App.
+* `Dockerfile` defines the process of the Docker container.
+* `test_main.py` contains the tests so that the Flask app runs under several test cases.
+* `requirements.txt` is to specify the dependencies (libraries and packages) required to run the project.
 
 ## Project Requirements
 
@@ -57,7 +67,7 @@ https://grocery-online.azurewebsites.net/
 
 * Optimized for high traffic: the service can support up to 10,000 requests per second, providing uninterrupted access to grocery information.
 
-* Comprehensive load testing: use `locust` module in Python to perform load test. Run `locust -f locustfile.py` in the terminal gives the below quantitative results:
+* Comprehensive load testing: use `locust` module in Python to perform load test. Run `locust -f locustfile.py` in the terminal gives the below quantitative results. We set it to test 10,000 requests per second. The result of the load test is restricted by performance of Azure VM (4 cPUs and 16GB RAMs), but the peak request per second is around . This is evident by the low CPU percentage and memory percentage. 
 
 
 
@@ -68,7 +78,7 @@ https://grocery-online.azurewebsites.net/
 
 * Data-driven performance metrics: see above.
 
-* IaC: We can use Azure Resource Manager templates to deploy the Azure App, with the customized templated to Azure Portal:
+* IaC: We can use Azure Resource Manager templates to deploy the Azure App, with the following customized template to Azure Portal:
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -105,3 +115,7 @@ https://grocery-online.azurewebsites.net/
     ]
 }
 ```
+
+## References
+
+https://portal.azure.com/#@noahgiftgmail.onmicrosoft.com/resource/subscriptions/ad5ba8f3-b778-4b9d-9245-f43b213d40d7/resourcegroups/grocery-online_group/providers/Microsoft.Web/sites/grocery-online/appServices
