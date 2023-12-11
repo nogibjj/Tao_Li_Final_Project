@@ -41,7 +41,7 @@ This repository includes the main tasks for our final project:
 
 ## Architecture
 
-***Add diagram here***
+![Alt text](figures/architecture.jpg)
 
 * Microservice: The microservice is developed using FastAPI.
 * Containerization with Distroless: By using distroless containers, the FastAPI application is not only efficiently packed with its required environments but also gains an enhanced level of security.
