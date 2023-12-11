@@ -122,7 +122,7 @@ https://grocery-online.azurewebsites.net/
 See `team reflection` file.
 
 ## Video link
-***add video link here***
+https://www.youtube.com/watch?v=iKdS4qqO7Xw
 
 ## References
 
