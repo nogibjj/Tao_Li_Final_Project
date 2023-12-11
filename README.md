@@ -122,7 +122,7 @@ https://grocery-online.azurewebsites.net/
 ```
 ## Limitations
 1. Using sqlite3 as our database connection limits the volume of data that we can query. Using a more robust database resource like databricks would allow us to increase the scale of our data analysis if we would choose to do so
-2.  We have limited knowledge and experience with structuring and styling webpages using .html. In its current state, the app is very visually basic and would likely not be appropriate for business use. The flexibility of the app, in terms of how many filters can be applied on the database, is also limited.
+2.  We have limited knowledge and experience with structuring and styling webpages using .html. In its current state, the app is very visually basic and would likely not be appropriate for business use. The flexibility of the app, in terms of how many filters can be applied on the data, is also limited.
 
 ## Areas of Improvement
 1. As mentioned before, we would like to introduce more filtering options to the user. This would also include allowing users to apply multiple filters to the same query, as well as options to sort results by certain features.
