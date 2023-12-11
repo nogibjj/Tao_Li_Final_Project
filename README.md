@@ -53,6 +53,9 @@ This repository includes the main tasks for our final project:
 * Data interaction: we follow the ETL process in `mylib`: extract from an online database, transform&load into a sqlite3 database `GroceryDB.db`. Then we query data from the `GroceryDB` database using `query.py`, and transform the query results to `.json` format for front-end deployment.
 * Front-end: `template/home.html` offers a clean interface to interact with the service, using Bootstrap as a responsice design.
 
+## Functions
+Our microservice allows users to get information regarding grocery inventory from the GroceryDB database. Specifically, users can filter groceries by keyword, or by groceries that exceed a desired minimum quantity in inventory. During the ETL process, we implement several SQL queries and convert the results to json. These results are then displayed within the app whenever the user prompts the app to filter the groceries. 
+
 ## Workflow
 
 * Users interact with the `index.html` page, which is served by the FastAPI application. 
@@ -117,6 +120,17 @@ https://grocery-online.azurewebsites.net/
     ]
 }
 ```
+## Limitations
+1. Using sqlite3 as our database connection limits the volume of data that we can query. Using a more robust database resource like databricks would allow us to increase the scale of our data analysis if we would choose to do so
+2.  We have limited knowledge and experience with structuring and styling webpages using .html. In its current state, the app is very visually basic and would likely not be appropriate for business use. The flexibility of the app, in terms of how many filters can be applied on the database, is also limited.
+
+## Areas of Improvement
+1. As mentioned before, we would like to introduce more filtering options to the user. This would also include allowing users to apply multiple filters to the same query, as well as options to sort results by certain features.
+2. We may consider adding more visuals to the app. This can include images of groceries, background images, or color/texture changes.
+3. We may consider implementing multiple pages in our app. For example, performing a filter would redirect a user to a new page that lists the grocery results, rather than including the results on the same page as the filter tool.
+
+## AI Pair Programming Tools
+Github Copilot was used in this project to write the three python scripts in the `mylib` directory. Specifically, we had previous versions of the extract, load_transform, and query scripts written in Rust, and needed them to be translated to python. Prompting Github Copilot to do this for us made the translation process very fast and virtually error-free. 
 
 ## Team reflection
 See `team reflection` file.
